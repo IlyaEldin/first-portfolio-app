@@ -1,0 +1,56 @@
+import classes from "./ProductCard.module.css";
+import { useContext, useState, useEffect } from "react";
+import { CartContext } from "../CartContext/CartContext";
+import ModalPortal from "../ModalPortal/ModalPortal.jsx";
+import { ProductPage } from "../ProductPage/ProductPage.jsx";
+import { ButtonAddToCart } from "../ButtonAddToCart/ButtonAddToCart.jsx";
+
+export default function ProductCard({ product }) {
+  const { cartContent } = useContext(CartContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [inCart, setInCart] = useState(true);
+
+  useEffect(() => {
+    setInCart(cartContent.find((cartProduct) => cartProduct.id === product.id));
+  }, [cartContent, product.id]);
+
+  return (
+    <div className={classes.card}>
+      <div className={classes.productImage}>
+        <img
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            setIsModalOpen((prev) => !prev);
+          }}
+          src={product.image}
+          alt={product.name}
+        />
+      </div>
+      <div className={classes.productContent}>
+        <h3 className={classes.productName}>
+          <button
+            onClick={() => {
+              setIsModalOpen(true);
+            }}
+          >
+            {product.name}
+          </button>
+        </h3>
+        {isModalOpen && (
+          <ModalPortal setModalOpen={setIsModalOpen} isOpen={isModalOpen}>
+            <ProductPage
+              inCart={inCart}
+              setOpen={setIsModalOpen}
+              product={product}
+            ></ProductPage>
+          </ModalPortal>
+        )}
+        <p className={classes.productPrice}>
+          {product.price}₽/{product.units}
+        </p>
+        <span className={classes.rating}>⭐ {product.rating}</span>
+        <ButtonAddToCart product={product} inCart={inCart} />
+      </div>
+    </div>
+  );
+}

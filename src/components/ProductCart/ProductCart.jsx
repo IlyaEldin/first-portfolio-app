@@ -1,0 +1,48 @@
+import { useContext, useState } from "react";
+import classes from "./ProductCart.module.css";
+import { CartContext } from "../CartContext/CartContext";
+import ModalPortal from "../ModalPortal/ModalPortal";
+import { ProductPage } from "../ProductPage/ProductPage";
+
+export default function ProductCart({ product }) {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const { removeProductInCart, removeCountProductInCart, addProductInCart } =
+    useContext(CartContext);
+
+  return (
+    <div className={classes.card}>
+      <div className={classes.productImage}>
+        <img src={product.image} alt={product.name} />
+      </div>
+      <div className={classes.productContent}>
+        <h3 className={classes.productName}>
+          <button
+            onClick={() => {
+              setModalOpen((prev) => !prev);
+            }}
+          >
+            {product.name}
+          </button>
+
+          <ModalPortal isOpen={isModalOpen}>
+            <ProductPage setOpen={setModalOpen} product={product}></ProductPage>
+          </ModalPortal>
+        </h3>
+        <p className={classes.productPrice}>{product.price * product.count}₽</p>
+        <div className={classes.countProduct}>
+          <button onClick={() => removeCountProductInCart(product)}>-</button>
+          <p>{product.count}</p>
+          <button onClick={() => addProductInCart(product)}>+</button>
+        </div>
+      </div>
+      <button
+        onClick={() => {
+          removeProductInCart(product);
+        }}
+      >
+        <img src='/images/trash.svg' alt='Удалить из корзины' />
+      </button>
+    </div>
+  );
+}

@@ -1,0 +1,108 @@
+.contain {
+  padding: 2rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.card:nth-child(1) {
+  animation: slideRight 1s ease;
+}
+.card:nth-child(3) {
+  animation: slideLeft 1s ease;
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  color: var(--accent-primary);
+  margin-bottom: 0.8rem;
+}
+
+.cardContent {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.highlight {
+  color: var(--accent-success);
+  font-weight: 600;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 1;
+    /* transform: translateY(-15px); */
+    transform: translateX(-20px);
+    /* transform: translateX(-20px); */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 1;
+    /* transform: translateY(-15px); */
+    transform: translateX(20px);
+    /* transform: translateX(-20px); */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@media (max-width: 768px) {
+  .card {
+    padding: 1rem;
+  }
+  .grid {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: column;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+}

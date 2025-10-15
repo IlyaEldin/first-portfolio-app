@@ -1,0 +1,153 @@
+.contain {
+  padding: 2rem;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.title {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  justify-content: space-evenly;
+}
+
+.card {
+  min-width: 20vh;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.card:nth-child(1) {
+  animation: slideRight 1.5s ease;
+}
+.card:nth-child(3) {
+  animation: slideLeft 1.5s ease;
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card h3 {
+  color: var(--text-primary);
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.card p {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.sources {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.sources h3 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.sourceGrid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sourceGrid div {
+  width: 200px;
+}
+
+.source {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.5rem;
+  text-align: center;
+  flex-direction: column;
+}
+
+.source div {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+.source div + div {
+  font-size: 1rem;
+}
+
+.source + div {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 1;
+    /* transform: translateY(-15px); */
+    transform: translateX(-60px);
+    /* transform: translateX(-20px); */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 1;
+    /* transform: translateY(-15px); */
+    transform: translateX(60px);
+    /* transform: translateX(-20px); */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .contain {
+    padding: 0.5rem;
+  }
+  .sourceGrid div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+  }
+}

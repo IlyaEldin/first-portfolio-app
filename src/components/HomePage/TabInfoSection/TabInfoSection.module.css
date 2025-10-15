@@ -1,0 +1,61 @@
+.btnInfoSection {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  width: calc(100% / 5);
+  transition: all 0.4s ease;
+}
+
+.btnInfoSection:hover {
+  background: var(--hover-overlay);
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+
+.btnInfoSectionActive {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  border-color: var(--accent-primary);
+}
+
+.btnInfoSectionActive:hover {
+  background: var(--accent-secondary);
+  border-color: var(--accent-secondary);
+}
+
+.tabSection {
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+  background: var(--bg-card);
+
+  height: 5vh;
+  border-radius: 8px;
+  padding: 0 1rem;
+  position: sticky;
+  top: 6.5rem;
+  opacity: 1;
+  transition: all 1s ease; /*плавное появление*/
+}
+
+@media (max-width: 768px) {
+  .tabSection {
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+    padding: 1rem 0rem;
+    position: static;
+  }
+
+  .btnInfoSection {
+    width: 90%;
+    transition: all 0.4s ease;
+  }
+}
