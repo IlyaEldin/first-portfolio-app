@@ -43,7 +43,7 @@
 **Живая демо-версия доступна по ссылке:** [Vercel Deployment](https://portfolio-first-app.vercel.app/)
 
 <img width="1823" height="851" alt="image" src="https://github.com/user-attachments/assets/e53fad47-216d-4717-bd08-6232f5257f00" />
-___
+***
 
 ![Demo GIF](https://github.com/user-attachments/assets/ce196b75-b77f-464a-b64b-38fc41868b48)
 
