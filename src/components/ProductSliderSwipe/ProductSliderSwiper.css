@@ -7,6 +7,8 @@
   max-width: calc(265px * 4);
   padding: 0rem 0;
   animation: fadeIn 0.5s ease-out;
+  border: 1px solid var(--border-dark);
+  border-radius: 12px;
 }
 
 @keyframes fadeIn {
@@ -20,7 +22,6 @@
   }
 }
 
-/* Скрываем скроллбар */
 .products-wrapper::-webkit-scrollbar {
   display: none;
 }
@@ -30,13 +31,20 @@
   scrollbar-width: none;
 }
 
-/* Оставляем твои стили кнопок без изменений */
+.products-wrapper > * {
+  margin-right: 15px;
+}
+
+.products-wrapper > *:last-child {
+  margin-right: 0;
+}
+
 .product-swiper {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
   transition: all 0.2 ease;
+  gap: 2rem;
 }
 
 .btn-swiper {
@@ -57,7 +65,7 @@
   color: var(--text-primary);
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid var(--border-dark); /* Добавил границу для видимости */
+  border: 1px solid var(--border-dark);
 }
 
 .btn-swiper button:hover {
@@ -72,24 +80,24 @@
 
 @media (max-width: 1250px) {
   .products-wrapper {
-    max-width: calc(265px * 3); /* 3 карточки */
+    max-width: calc(265px * 3);
   }
 }
 
 @media (max-width: 950px) {
   .products-wrapper {
-    max-width: calc(265px * 2); /* 2 карточки */
+    max-width: calc(265px * 2);
   }
 }
 
 @media (max-width: 680px) {
   .products-wrapper {
-    max-width: 265px; /* 1 карточка */
+    max-width: 265px;
   }
 }
 @media (max-width: 450px) {
   .products-wrapper {
-    max-width: 264px; /* 1 карточка */
+    max-width: 264px;
   }
   .product-swiper {
     gap: 0.2rem;
